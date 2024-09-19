@@ -7,7 +7,7 @@ export async function createGoal({
   title,
   desiredWeeklyFrequency,
 }: CreateGoalRequest) {
-  await fetch('http:///localhost:3333/summary-goal', {
+  await fetch('http://localhost:3333/goals', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

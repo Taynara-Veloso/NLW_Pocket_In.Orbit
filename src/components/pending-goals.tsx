@@ -8,7 +8,7 @@ export function PendingGoals() {
   const queryClient = useQueryClient()
 
   const { data } = useQuery({
-    queryKey: ['pendingGoals'],
+    queryKey: ['pending-goals'],
     queryFn: getPendingGoals,
     staleTime: 1000 * 60, // 60 seconds
   })
@@ -20,7 +20,7 @@ export function PendingGoals() {
   async function handleCompleteGoal(goalId: string) {
     await createGoalCompletion(goalId)
 
-    queryClient.invalidateQueries({ queryKey: ['summary-goal']})
+    queryClient.invalidateQueries({ queryKey: ['summary']})
     queryClient.invalidateQueries({ queryKey: ['pending-goals']})
   }
 

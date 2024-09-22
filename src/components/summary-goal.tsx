@@ -23,8 +23,9 @@ export function SummaryGoal() {
     return null
   }
 
-  const firstDayOfWeek = dayjs().startOf('week').format('D MMM')
-  const lastDayOfWeek = dayjs().endOf('week').format('D MMM')
+  const firstDayOfWeek = dayjs().startOf('week').format('D')
+  const lastDayOfWeek = dayjs().endOf('week').format('D')
+  const monthOfTheYear = dayjs().endOf('week').format('MMMM')
 
   const completedPercentage = Math.round((data.completed * 100)/ data.total)
 
@@ -33,8 +34,8 @@ export function SummaryGoal() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <InOrbitIcon />
-          <span className="text-lg font-semibold capitalize">
-            {firstDayOfWeek} - {lastDayOfWeek}
+          <span className="text-lg font-semibold">
+            {firstDayOfWeek} a {lastDayOfWeek} de <span className="capitalize">{monthOfTheYear}</span>
           </span>
         </div>
         <DialogTrigger>
@@ -87,7 +88,7 @@ export function SummaryGoal() {
               <ul className="flex flex-col gap-3">
                 {goals.map(goal => {
                   const time = dayjs(goal.completedAt).format('HH:mm')
-                  
+
                   return (
                     <li key={goal.id} className="flex items-center gap-2">
                       <CheckCircle2 className="size-4 text-pink-500"/>
@@ -96,7 +97,7 @@ export function SummaryGoal() {
                         <span className="text-zinc-100">
                           {goal.title}
                         </span>
-                        " às &nbsp;
+                        " às&nbsp;
                         <span className="text-zinc-100">
                           {time}h
                         </span>

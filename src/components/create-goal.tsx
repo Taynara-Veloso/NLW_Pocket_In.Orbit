@@ -43,8 +43,8 @@ export function CreateGoal() {
 
   return (
     <DialogContent>
-      <div className="flex flex-col gap-6 h-full">
-        <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4 h-full">
+        <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <DialogTitle>Cadastrar Meta</DialogTitle>
             <DialogClose>
@@ -57,8 +57,8 @@ export function CreateGoal() {
           </DialogDescription>
         </div>
         <form onSubmit={handleSubmit(handleCreateGoal)}
-          className="flex flex-1 flex-col justify-between">
-          <div className="flex flex-col gap-6">
+          className="flex flex-1 flex-col justify-between gap-8">
+          <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label htmlFor="title">
                 Qual a atividade?
